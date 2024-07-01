@@ -80,17 +80,17 @@
 
 .image-grid-item {
   position: relative;
-  overflow: hidden; /* Add overflow hidden to hide any overflow content */
+  overflow: hidden; 
 }
 
 .image-grid-item.large {
   grid-row: span 2;
-  height: 420rpx; 
+  height: 500rpx; 
 }
 
 .image-grid-item.small {
   grid-row: span 1;
-  height: 200rpx; 
+  height: 240rpx; 
 }
 
 .content-image {

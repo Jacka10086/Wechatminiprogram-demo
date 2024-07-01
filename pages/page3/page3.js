@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    active: 2,
     nickName : "",
     avatarUrl : "",
     gender : "",
@@ -62,9 +63,10 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow() {
+    this.setData({ active: 2 });
   },
+
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -99,5 +101,31 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  onTabBarChange(event) {
+   
+    switch (event.detail) {
+      case 0:
+        wx.navigateTo({ url: '/pages/home/home' });
+        break;
+      case 1:
+        wx.navigateTo({ url: '/pages/page2/page2' });
+        break;
+      case 2:
+        wx.navigateTo({ url: '/pages/page3/page3' });
+        break;
+    }
+  },
+
+  navigateToPage1() {
+    wx.navigateTo({ url: '/pages/home/home' });
+  },
+
+  navigateToPage2() {
+    wx.navigateTo({ url: '/pages/page2/page2' });
+  },
+
+  navigateToPage3() {
+    wx.navigateTo({ url: '/pages/page3/page3' });
+  },
 })

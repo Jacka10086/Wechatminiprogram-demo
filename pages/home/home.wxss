@@ -1,0 +1,44 @@
+.container {
+  padding: 40rpx 40rpx 200rpx 40rpx;
+  box-sizing: border-box;
+  text-align: center;
+  max-height: 900rpx;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+.nav-item {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #007aff;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+}
+.device-item {
+  padding: 10px;
+  border-bottom: 1px solid #ebebeb;
+}
+.van-tab {
+  height: calc(100vh - 60px); 
+  overflow-y: auto; /* 使得内容可滚动 */
+}
+
+/* van-tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+} */
+

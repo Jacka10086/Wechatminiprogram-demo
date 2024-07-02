@@ -9,8 +9,8 @@ Page({
       { src: 'https://via.placeholder.com/600x400?text=Image+4' }
     ],
     gridItems: [
-      { icon: 'https://via.placeholder.com/100', text: '按钮1' },
-      { icon: 'https://via.placeholder.com/100', text: '按钮2' },
+      { icon: 'https://via.placeholder.com/100', text: '加一页' },
+      { icon: 'https://via.placeholder.com/100', text: '减一页' },
       { icon: 'https://via.placeholder.com/100', text: '按钮3' },
       { icon: 'https://via.placeholder.com/100', text: '按钮4' },
       { icon: 'https://via.placeholder.com/100', text: '按钮5' }
@@ -22,9 +22,30 @@ Page({
     ]
   },
 
-  onLoad() {
-    
+  onLoad: function (options) {},
+
+  addSwiperPage: function () {
+    const newPage = { src: `https://via.placeholder.com/600x400?text=New+Image` };
+    this.setData({
+      swiperItems: [...this.data.swiperItems, newPage]
+    });
   },
+
+  removeSwiperPage: function () {
+    const swiperItems = [...this.data.swiperItems];
+    swiperItems.pop();
+    this.setData({ swiperItems });
+  },
+
+  onGridItemTap: function(event) {
+    const index = event.currentTarget.dataset.index;
+    if (index === 0) {
+      this.addSwiperPage();
+    } else if (index === 1) {
+      this.removeSwiperPage();
+    }
+  },
+
   onShow() {
     this.setData({ active: 1 }); // 设置当前页面为激活状态
   },

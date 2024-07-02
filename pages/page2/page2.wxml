@@ -1,5 +1,5 @@
 <!-- pages/page2/page2.wxml -->
-<view class="container">
+<view class="container" style="background-color:{{backgroundColor}};">
   <view class="search-bar">
     <input class="search-input" placeholder="搜索商品" />
     <button class="search-button" bindtap="onSearch">搜索</button>

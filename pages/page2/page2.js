@@ -11,8 +11,8 @@ Page({
     gridItems: [
       { icon: 'https://via.placeholder.com/100', text: '加一页' },
       { icon: 'https://via.placeholder.com/100', text: '减一页' },
-      { icon: 'https://via.placeholder.com/100', text: '按钮3' },
-      { icon: 'https://via.placeholder.com/100', text: '按钮4' },
+      { icon: 'https://via.placeholder.com/100', text: '暗夜' },
+      { icon: 'https://via.placeholder.com/100', text: '白昼' },
       { icon: 'https://via.placeholder.com/100', text: '按钮5' }
     ],
     imageItems: [
@@ -40,9 +40,45 @@ Page({
   onGridItemTap: function(event) {
     const index = event.currentTarget.dataset.index;
     if (index === 0) {
+    wx.showToast({
+      title: '添加页面成功！',
+      icon: 'none'
+    });
+    setTimeout(() => {
       this.addSwiperPage();
-    } else if (index === 1) {
+    }, 150); 
+  } 
+    else if (index === 1) {
+      wx.showToast({
+        title: '删除页面成功！',
+        icon: 'none'
+      });
+    setTimeout(()=> {
       this.removeSwiperPage();
+    })
+    }
+     else if (index === 2) {
+      wx.showToast({
+        title: '暗夜模式启动！',
+        icon: 'none'
+      });
+      this.setData({ 
+        backgroundColor: '#000000'
+      });
+
+    } else if (index === 3) {
+      wx.showToast({
+        title: '白昼模式启动！',
+        icon: 'none'
+      });
+      this.setData({
+        backgroundColor: '#FFFFFF'
+      })
+    } else if (index === 4) {
+      wx.showToast({
+        title: '事件5触发',
+        icon: 'none'
+      });
     }
   },
 

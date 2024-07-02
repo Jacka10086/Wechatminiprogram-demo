@@ -13,7 +13,7 @@ Page({
       { icon: 'https://via.placeholder.com/100', text: '减一页' },
       { icon: 'https://via.placeholder.com/100', text: '暗夜' },
       { icon: 'https://via.placeholder.com/100', text: '白昼' },
-      { icon: 'https://via.placeholder.com/100', text: '按钮5' }
+      { icon: 'https://via.placeholder.com/100', text: '原神' }
     ],
     imageItems: [
       { src: 'https://via.placeholder.com/600x400?text=Image+1', text: '1' },
@@ -75,9 +75,12 @@ Page({
         backgroundColor: '#FFFFFF'
       })
     } else if (index === 4) {
-      wx.showToast({
-        title: '事件5触发',
-        icon: 'none'
+      
+      wx.showModal({
+        title: '警告',
+        content: '您没有原神内测资格！',
+        showCancel: false,
+        confirmText: '确定'
       });
     }
   },

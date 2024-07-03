@@ -12,9 +12,7 @@
   <text>省份： {{province}}</text>
 </view>
 
-<view style="margin-top:20%"> 
-  <button open-type="getUserInfo" bindtap="showUserInfoTap">获取个人信息</button>
-</view>
+
 
 </view>
 <van-tabbar bind:change="onTabBarChange" active="{{active}}">

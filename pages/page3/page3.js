@@ -1,20 +1,18 @@
-// pages/personinfo/personinfo.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     active: 2,
-    nickName : "",
-    avatarUrl : "",
-    gender : "",
-    province : "",
-    city : "",
-    country : ""
+    nickName: "",
+    avatarUrl: "",
+    gender: "",
+    province: "",
+    city: "",
+    country: ""
   },
 
-  showUserInfoTap:function(){
+  showUserInfoTap: function() {
     var that = this;
     wx.getUserInfo({
       success: function(res) {
@@ -28,19 +26,19 @@ Page({
         var province = userInfo.province
         var city = userInfo.city
         var country = userInfo.country
-        if(gender==1){
+        if (gender == 1) {
           gender = '男'
-        }else if(gender==2){
-          gender='女'
-        }else{
+        } else if (gender == 2) {
+          gender = '女'
+        } else {
           gender = '未知'
         }
         that.setData({
-          nickName : nickName,
-          avatarUrl : avatarUrl,
-          gender : gender,
-          country : country,
-          province : province
+          nickName: nickName,
+          avatarUrl: avatarUrl,
+          gender: gender,
+          country: country,
+          province: province
         })
       }
     })
@@ -49,16 +47,12 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
-  },
+  onLoad: function(options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-
-  },
+  onReady: function() {},
 
   /**
    * 生命周期函数--监听页面显示
@@ -67,65 +61,55 @@ Page({
     this.setData({ active: 2 });
   },
 
-
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-
-  },
+  onHide: function() {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-
-  },
+  onUnload: function() {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
-  },
+  onPullDownRefresh: function() {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
-  },
+  onReachBottom: function() {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {},
 
-  },
   onTabBarChange(event) {
-   
+    this.setData({ active: event.detail });
     switch (event.detail) {
       case 0:
-        wx.navigateTo({ url: '/pages/home/home' });
+        wx.redirectTo({ url: '/pages/home/home' });
         break;
       case 1:
-        wx.navigateTo({ url: '/pages/page2/page2' });
+        wx.redirectTo({ url: '/pages/page2/page2' });
         break;
       case 2:
-        wx.navigateTo({ url: '/pages/page3/page3' });
+        wx.redirectTo({ url: '/pages/page3/page3' });
         break;
     }
   },
 
   navigateToPage1() {
-    wx.navigateTo({ url: '/pages/home/home' });
+    wx.redirectTo({ url: '/pages/home/home' });
   },
 
   navigateToPage2() {
-    wx.navigateTo({ url: '/pages/page2/page2' });
+    wx.redirectTo({ url: '/pages/page2/page2' });
   },
 
   navigateToPage3() {
-    wx.navigateTo({ url: '/pages/page3/page3' });
-  },
-})
+    wx.redirectTo({ url: '/pages/page3/page3' });
+  }
+});

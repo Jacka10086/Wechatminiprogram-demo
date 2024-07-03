@@ -17,7 +17,6 @@ Page({
     });
   },
   onShow() {
-    // 在页面显示时刷新底部导航栏的 active 状态
     this.setData({
       active: 0
     });
@@ -25,37 +24,35 @@ Page({
 
   onTabBarChange(event) {
     this.setData({ active: event.detail });
-    // 根据 active 值导航到对应的页面
     switch (event.detail) {
       case 0:
-        this.navigateToPage1();
+        wx.redirectTo({ url: '/pages/home/home' });
         break;
       case 1:
-        this.navigateToPage2();
+        wx.redirectTo({ url: '/pages/page2/page2' });
         break;
       case 2:
-        this.navigateToPage3();
+        wx.redirectTo({ url: '/pages/page3/page3' });
         break;
     }
   },
 
   navigateToPage1() {
-    wx.navigateTo({ url: '/pages/home/home' });
+    wx.redirectTo({ url: '/pages/home/home' });
   },
 
   navigateToPage2() {
-    wx.navigateTo({ url: '/pages/page2/page2' });
+    wx.redirectTo({ url: '/pages/page2/page2' });
   },
 
   navigateToPage3() {
-    wx.navigateTo({ url: '/pages/page3/page3' });
+    wx.redirectTo({ url: '/pages/page3/page3' });
   },
 
   onSwitchChange(event) {
     const { id } = event.currentTarget.dataset;
     const { devices, category1Devices, category2Devices } = this.data;
     
-    // 更新所有设备列表
     const updatedDevices = devices.map(device => {
       if (device.id === id) {
         return { ...device, enabled: !device.enabled };
@@ -63,7 +60,6 @@ Page({
       return device;
     });
     
-    // 更新分类设备列表
     const updatedCategory1Devices = updatedDevices.filter(device => device.category === 1);
     const updatedCategory2Devices = updatedDevices.filter(device => device.category === 2);
 

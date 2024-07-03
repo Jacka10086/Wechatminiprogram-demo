@@ -1,4 +1,3 @@
-// pages/page2/page2.js
 Page({
   data: {
     active: 1,
@@ -40,26 +39,18 @@ Page({
   onGridItemTap: function(event) {
     const index = event.currentTarget.dataset.index;
     if (index === 0) {
-    wx.showToast({
-      title: '添加页面成功！',
-      icon: 'none'
-    });
-    // setTimeout(() => {
-    //   this.addSwiperPage();
-    // }, 150); 
-
-    this.addSwiperPage();
-  } 
-    else if (index === 1) {
+      wx.showToast({
+        title: '添加页面成功！',
+        icon: 'none'
+      });
+      this.addSwiperPage();
+    } else if (index === 1) {
       wx.showToast({
         title: '删除页面成功！',
         icon: 'none'
       });
-    setTimeout(()=> {
       this.removeSwiperPage();
-    })
-    }
-     else if (index === 2) {
+    } else if (index === 2) {
       wx.showToast({
         title: '暗夜模式启动！',
         icon: 'none'
@@ -67,7 +58,6 @@ Page({
       this.setData({ 
         backgroundColor: '#000080'
       });
-
     } else if (index === 3) {
       wx.showToast({
         title: '白昼模式启动！',
@@ -75,9 +65,8 @@ Page({
       });
       this.setData({
         backgroundColor: '#FFFFFF'
-      })
+      });
     } else if (index === 4) {
-      
       wx.showModal({
         title: '警告',
         content: '您没有原神内测资格！',
@@ -92,31 +81,32 @@ Page({
   },
 
   onTabBarChange(event) {
-   
+    this.setData({ active: event.detail });
     switch (event.detail) {
       case 0:
-        wx.navigateTo({ url: '/pages/home/home' });
+        wx.redirectTo({ url: '/pages/home/home' });
         break;
       case 1:
-        wx.navigateTo({ url: '/pages/page2/page2' });
+        wx.redirectTo({ url: '/pages/page2/page2' });
         break;
       case 2:
-        wx.navigateTo({ url: '/pages/page3/page3' });
+        wx.redirectTo({ url: '/pages/page3/page3' });
         break;
     }
   },
 
   navigateToPage1() {
-    wx.navigateTo({ url: '/pages/home/home' });
+    wx.redirectTo({ url: '/pages/home/home' });
   },
 
   navigateToPage2() {
-    wx.navigateTo({ url: '/pages/page2/page2' });
+    wx.redirectTo({ url: '/pages/page2/page2' });
   },
 
   navigateToPage3() {
-    wx.navigateTo({ url: '/pages/page3/page3' });
+    wx.redirectTo({ url: '/pages/page3/page3' });
   },
+
   onSearch() {
     wx.showToast({
       title: '搜索功能尚未实现',

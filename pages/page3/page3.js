@@ -1,7 +1,5 @@
 Page({
-  /**
-   * 页面的初始数据
-   */
+  
   data: {
     active: 2,
     nickName: "",
@@ -104,6 +102,7 @@ Page({
   navigateToPage1() {
     wx.redirectTo({ url: '/pages/home/home' });
   },
+
 
   navigateToPage2() {
     wx.redirectTo({ url: '/pages/page2/page2' });

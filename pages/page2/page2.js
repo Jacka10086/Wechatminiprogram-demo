@@ -1,12 +1,7 @@
 Page({
   data: {
     active: 1,
-    swiperItems: [
-      { src: 'https://via.placeholder.com/600x400?text=Image+1' },
-      { src: 'https://via.placeholder.com/600x400?text=Image+2' },
-      { src: 'https://via.placeholder.com/600x400?text=Image+3' },
-      { src: 'https://via.placeholder.com/600x400?text=Image+4' }
-    ],
+    swiperItems: [],
     gridItems: [
       { icon: 'https://via.placeholder.com/100', text: '加一页' },
       { icon: 'https://via.placeholder.com/100', text: '减一页' },
@@ -14,14 +9,16 @@ Page({
       { icon: 'https://via.placeholder.com/100', text: '白昼' },
       { icon: 'https://via.placeholder.com/100', text: '原神' }
     ],
-    imageItems: [
-      { src: 'https://via.placeholder.com/600x400?text=Image+1', text: '1' },
-      { src: 'https://via.placeholder.com/600x200?text=Image+2', text: '2' },
-      { src: 'https://via.placeholder.com/600x200?text=Image+3', text: '3' }
-    ]
+    imageItems: []
   },
 
-  onLoad: function (options) {},
+  onLoad: function (options) {
+    const productData = require('../../data/ProductData.js');
+    this.setData({
+      swiperItems: productData.products,
+      imageItems: productData.imageItems
+    });
+  },
 
   addSwiperPage: function () {
     const newPage = { src: `https://via.placeholder.com/600x400?text=New+Image` };

@@ -28,6 +28,7 @@
       </block>
     </van-tab>
   </van-tabs>
+  <view bind:touchstart="onTouchStart" bind:touchmove="onTouchMove" bind:touchend="onTouchEnd" style="height: 100%;"></view>
 </view>
 <van-tabbar active="{{active}}" bind:change="onTabBarChange">
   <van-tabbar-item icon="home-o" bindtap="navigateToPage1">我的设备</van-tabbar-item>

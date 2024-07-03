@@ -1,4 +1,6 @@
-<view style="box-sizing: border-box; margin: 16rpx 16rpx 160rpx 16rpx; flex-grow: 1; overflow-x: hidden; overflow-y: scroll;">
+<view style="box-sizing: border-box; margin: 16rpx 16rpx 160rpx 16rpx; flex-grow: 1; overflow-x: hidden; overflow-y: scroll;"bindtouchstart="onTouchStart"
+  bindtouchmove="onTouchMove"
+  bindtouchend="onTouchEnd">
   <van-tabs active="{{ activeTab }}" bind:change="onTabChange">
     <van-tab title="全部分类">
       <block wx:for="{{ devices }}" wx:key="id">
@@ -28,7 +30,7 @@
       </block>
     </van-tab>
   </van-tabs>
-  <view bind:touchstart="onTouchStart" bind:touchmove="onTouchMove" bind:touchend="onTouchEnd" style="height: 100%;"></view>
+  
 </view>
 <van-tabbar active="{{active}}" bind:change="onTabBarChange">
   <van-tabbar-item icon="home-o" bindtap="navigateToPage1">我的设备</van-tabbar-item>

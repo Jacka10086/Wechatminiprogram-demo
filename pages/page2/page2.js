@@ -44,9 +44,11 @@ Page({
       title: '添加页面成功！',
       icon: 'none'
     });
-    setTimeout(() => {
-      this.addSwiperPage();
-    }, 150); 
+    // setTimeout(() => {
+    //   this.addSwiperPage();
+    // }, 150); 
+
+    this.addSwiperPage();
   } 
     else if (index === 1) {
       wx.showToast({
@@ -63,7 +65,7 @@ Page({
         icon: 'none'
       });
       this.setData({ 
-        backgroundColor: '#000000'
+        backgroundColor: '#000080'
       });
 
     } else if (index === 3) {

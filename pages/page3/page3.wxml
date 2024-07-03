@@ -14,3 +14,9 @@
     <van-field label="城市" value="{{editCity}}" bind:change="onCityChange" />
   </van-action-sheet>
 </view>
+
+<van-tabbar bind:change="onTabBarChange" active="{{active}}">
+  <van-tabbar-item icon="home-o" bindtap="navigateToPage1">我的设备</van-tabbar-item>
+  <van-tabbar-item icon="shop-o" bindtap="navigateToPage2">线上商城</van-tabbar-item>
+  <van-tabbar-item icon="user-o" bindtap="navigateToPage3">个人信息</van-tabbar-item>
+</van-tabbar>

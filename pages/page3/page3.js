@@ -53,7 +53,7 @@ Page({
   },
 
   onShow() {
-    this.setData({ active: 2 });
+    this.setData({ active: 2 }); // 设置当前页面为激活状态
   },
 
   onTabBarChange(event) {

@@ -1,11 +1,17 @@
+/* pages/page3/page3.wxss */
 .container {
   padding: 20px;
+  background-color: #f0f0f0; /* 添加背景色 */
 }
 
 .user-info {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  background-color: #ffffff; /* 添加背景色 */
+  padding: 20rpx; /* 内边距 */
+  border-radius: 10rpx; /* 添加圆角 */
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1); /* 添加阴影 */
 }
 
 .avatar {
@@ -27,4 +33,31 @@
 
 button {
   margin-top: 20px;
+  background-color: #007aff; /* 添加背景色 */
+  color: white;
+  border: none;
+  border-radius: 5rpx; /* 添加圆角 */
+  padding: 10rpx 20rpx; /* 添加内边距 */
+  font-size: 16px;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1); /* 添加阴影 */
+}
+
+.edit-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.edit-info input {
+  margin-bottom: 10rpx;
+  padding: 10rpx;
+  border: 1px solid #ccc;
+  border-radius: 5rpx;
+  font-size: 16px;
+}
+
+.edit-info label {
+  font-size: 16px;
+  margin-bottom: 5rpx;
+  color: #333;
 }

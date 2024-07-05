@@ -12,17 +12,16 @@ Page({
     imageItems: [],
     backgroundColor: '#FFFFFF',
     showAddImageDialog: false,
-    newImageUrl: ''
+    newImageUrl: '',
+    showRemoveImageDialog: false,
+    removeImageIndex: null
   },
 
   onLoad: function (options) {
     const productData = require('../../data/ProductData.js');
-    const savedSwiperItems = wx.getStorageSync('swiperItems') || productData.products;
-    const savedImageItems = wx.getStorageSync('imageItems') || productData.imageItems;
-
     this.setData({
-      swiperItems: savedSwiperItems,
-      imageItems: savedImageItems
+      swiperItems: productData.products,
+      imageItems: productData.imageItems
     });
   },
 
@@ -32,15 +31,12 @@ Page({
 
   onAddImageConfirm: function () {
     const newPage = { src: this.data.newImageUrl };
-    const updatedSwiperItems = [...this.data.swiperItems, newPage];
-
     this.setData({
-      swiperItems: updatedSwiperItems,
+      swiperItems: [...this.data.swiperItems, newPage],
       showAddImageDialog: false,
       newImageUrl: ''
     });
-
-    wx.setStorageSync('swiperItems', updatedSwiperItems);
+    wx.setStorageSync('swiperItems', this.data.swiperItems);
   },
 
   onAddImageClose: function () {
@@ -52,11 +48,21 @@ Page({
   },
 
   removeSwiperPage: function () {
+    this.setData({ showRemoveImageDialog: true });
+  },
+
+  onRemoveImageConfirm: function () {
     const swiperItems = [...this.data.swiperItems];
     swiperItems.pop();
-    this.setData({ swiperItems });
+    this.setData({
+      swiperItems,
+      showRemoveImageDialog: false
+    });
+    wx.setStorageSync('swiperItems', this.data.swiperItems);
+  },
 
-    wx.setStorageSync('swiperItems', swiperItems);
+  onRemoveImageClose: function () {
+    this.setData({ showRemoveImageDialog: false });
   },
 
   onGridItemTap: function(event) {
@@ -80,7 +86,11 @@ Page({
   },
 
   onShow() {
-    this.setData({ active: 1 });
+    const savedSwiperItems = wx.getStorageSync('swiperItems') || [];
+    this.setData({ 
+      active: 1,
+      swiperItems: savedSwiperItems.length > 0 ? savedSwiperItems : this.data.swiperItems
+    });
   },
 
   onTabBarChange(event) {

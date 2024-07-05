@@ -1,4 +1,3 @@
-<!-- pages/page2/page2.wxml -->
 <view class="container" style="background-color:{{backgroundColor}};">
   <view class="search-bar">
     <input class="search-input" placeholder="搜索商品" />
@@ -33,6 +32,10 @@
 
   <van-dialog use-slot id="addImageDialog" show="{{showAddImageDialog}}" show-cancel-button bind:confirm="onAddImageConfirm" bind:close="onAddImageClose">
     <van-field value="{{newImageUrl}}" label="图片链接" placeholder="请输入图片链接" border="{{false}}" bind:change="onNewImageUrlChange" />
+  </van-dialog>
+
+  <van-dialog show="{{showRemoveImageDialog}}" title="删除图片" show-cancel-button bind:confirm="onRemoveImageConfirm" bind:close="onRemoveImageClose">
+    <view>确定要删除最后一张图片吗？</view>
   </van-dialog>
 </view>
 

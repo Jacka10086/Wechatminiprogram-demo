@@ -54,11 +54,11 @@
 .grid-container {
   display: grid; /* 将元素设置为网格容器 */
   grid-template-columns: repeat(5, 1fr); /* 创建5列，列宽相等 */
-  gap: 20rpx; /* 设置网格项之间的间距为20rpx */
+  gap: 10rpx; /* 设置网格项之间的间距为20rpx */
   width: 100%; /* 宽度为100% */
   padding: 20rpx; /* 内边距为20rpx */
   box-sizing: border-box; /* 包括内边距和边框在内的宽度和高度 */
-  margin-top: 20rpx; /* 设置顶部外边距为20rpx */
+  margin-top: 30rpx; /* 设置顶部外边距为20rpx */
   border: 1px solid #ccc; /* 设置边框为1px实线，颜色为#ccc（灰色） */
   border-radius: 10rpx; /* 设置边框圆角半径为10rpx */
 }
@@ -99,12 +99,12 @@
 
 .image-grid-item.large {
   grid-row: span 2;
-  height: 580rpx; 
+  height: 550rpx; 
 }
 
 .image-grid-item.small {
   grid-row: span 1;
-  height: 280rpx; 
+  height: 260rpx; 
 }
 
 .content-image {

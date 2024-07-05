@@ -1,3 +1,4 @@
+<!-- pages/page2/page2.wxml -->
 <view class="container" style="background-color:{{backgroundColor}};">
   <view class="search-bar">
     <input class="search-input" placeholder="搜索商品" />
@@ -15,7 +16,7 @@
   <view class="grid-container">
     <block wx:for="{{gridItems}}" wx:key="index">
       <view class="grid-item" bindtap="onGridItemTap" data-index="{{index}}">
-        <van-icon name="{{item.icon}}" size="30px" />
+        <image src="{{item.icon}}" class="grid-icon" />
         <text>{{item.text}}</text>
       </view>
     </block>
@@ -29,7 +30,10 @@
       </view>
     </block>
   </view>
-  
+
+  <van-dialog use-slot id="addImageDialog" show="{{showAddImageDialog}}" show-cancel-button bind:confirm="onAddImageConfirm" bind:close="onAddImageClose">
+    <van-field value="{{newImageUrl}}" label="图片链接" placeholder="请输入图片链接" border="{{false}}" bind:change="onNewImageUrlChange" />
+  </van-dialog>
 </view>
 
 <van-tabbar bind:change="onTabBarChange" active="{{active}}">

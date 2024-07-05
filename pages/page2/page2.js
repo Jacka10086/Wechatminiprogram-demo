@@ -1,15 +1,19 @@
+// pages/page2/page2.js
 Page({
   data: {
     active: 1,
     swiperItems: [],
     gridItems: [
-      { icon: 'add-o', text: '加一页' },
-      { icon: 'minus', text: '减一页' },
-      { icon: 'bulb-o', text: '暗夜' },
-      { icon: 'bulb-o', text: '白昼' },
-      { icon: 'warning-o', text: '原神' }
+      { icon: 'https://via.placeholder.com/100', text: '加一页' },
+      { icon: 'https://via.placeholder.com/100', text: '减一页' },
+      { icon: 'https://via.placeholder.com/100', text: '暗夜' },
+      { icon: 'https://via.placeholder.com/100', text: '白昼' },
+      { icon: 'https://via.placeholder.com/100', text: '原神' }
     ],
-    imageItems: []
+    imageItems: [],
+    backgroundColor: '#FFFFFF',
+    showAddImageDialog: false,
+    newImageUrl: ''
   },
 
   onLoad: function (options) {
@@ -21,10 +25,24 @@ Page({
   },
 
   addSwiperPage: function () {
-    const newPage = { src: `https://via.placeholder.com/600x400?text=New+Image` };
+    this.setData({ showAddImageDialog: true });
+  },
+
+  onAddImageConfirm: function () {
+    const newPage = { src: this.data.newImageUrl };
     this.setData({
-      swiperItems: [...this.data.swiperItems, newPage]
+      swiperItems: [...this.data.swiperItems, newPage],
+      showAddImageDialog: false,
+      newImageUrl: ''
     });
+  },
+
+  onAddImageClose: function () {
+    this.setData({ showAddImageDialog: false, newImageUrl: '' });
+  },
+
+  onNewImageUrlChange: function (event) {
+    this.setData({ newImageUrl: event.detail });
   },
 
   removeSwiperPage: function () {
@@ -36,33 +54,13 @@ Page({
   onGridItemTap: function(event) {
     const index = event.currentTarget.dataset.index;
     if (index === 0) {
-      wx.showToast({
-        title: '添加页面成功！',
-        icon: 'none'
-      });
       this.addSwiperPage();
     } else if (index === 1) {
-      wx.showToast({
-        title: '删除页面成功！',
-        icon: 'none'
-      });
       this.removeSwiperPage();
     } else if (index === 2) {
-      wx.showToast({
-        title: '暗夜模式启动！',
-        icon: 'none'
-      });
-      this.setData({ 
-        backgroundColor: '#000080'
-      });
+      this.setData({ backgroundColor: '#000080' });
     } else if (index === 3) {
-      wx.showToast({
-        title: '白昼模式启动！',
-        icon: 'none'
-      });
-      this.setData({
-        backgroundColor: '#FFFFFF'
-      });
+      this.setData({ backgroundColor: '#FFFFFF' });
     } else if (index === 4) {
       wx.showModal({
         title: '警告',
@@ -74,7 +72,7 @@ Page({
   },
 
   onShow() {
-    this.setData({ active: 1 }); // 设置当前页面为激活状态
+    this.setData({ active: 1 });
   },
 
   onTabBarChange(event) {

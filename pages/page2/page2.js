@@ -3,11 +3,11 @@ Page({
     active: 1,
     swiperItems: [],
     gridItems: [
-      { icon: 'https://via.placeholder.com/100', text: '加一页' },
-      { icon: 'https://via.placeholder.com/100', text: '减一页' },
-      { icon: 'https://via.placeholder.com/100', text: '暗夜' },
-      { icon: 'https://via.placeholder.com/100', text: '白昼' },
-      { icon: 'https://via.placeholder.com/100', text: '原神' }
+      { icon: 'plus', text: '加一页' },
+      { icon: 'minus', text: '减一页' },
+      { icon: 'eye-o', text: '暗夜' },
+      { icon: 'eye', text: '白昼' },
+      { icon: 'warning-o', text: '原神' }
     ],
     imageItems: [],
     backgroundColor: '#FFFFFF',

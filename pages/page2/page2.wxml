@@ -15,7 +15,7 @@
   <view class="grid-container">
     <block wx:for="{{gridItems}}" wx:key="index">
       <view class="grid-item" bindtap="onGridItemTap" data-index="{{index}}">
-        <image src="{{item.icon}}" class="grid-icon" />
+        <van-icon name="{{item.icon}}" />
         <text>{{item.text}}</text>
       </view>
     </block>

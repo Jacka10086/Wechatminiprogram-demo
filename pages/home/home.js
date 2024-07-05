@@ -97,9 +97,9 @@ Page({
     const deltaY = this.data.touchEndY - this.data.touchStartY;
 
     if (Math.abs(deltaX) > Math.abs(deltaY)) {
-      if (deltaX > 5 && this.data.activeTab > 0) {
+      if (deltaX > 50 && this.data.activeTab > 0) {
         this.setData({ activeTab: this.data.activeTab - 1 });
-      } else if (deltaX < -5 && this.data.activeTab < 2) {
+      } else if (deltaX < -50 && this.data.activeTab < 2) {
         this.setData({ activeTab: this.data.activeTab + 1 });
       }
     }

@@ -1,4 +1,3 @@
-// pages/page2/page2.js
 Page({
   data: {
     active: 1,
@@ -18,9 +17,12 @@ Page({
 
   onLoad: function (options) {
     const productData = require('../../data/ProductData.js');
+    const savedSwiperItems = wx.getStorageSync('swiperItems') || productData.products;
+    const savedImageItems = wx.getStorageSync('imageItems') || productData.imageItems;
+
     this.setData({
-      swiperItems: productData.products,
-      imageItems: productData.imageItems
+      swiperItems: savedSwiperItems,
+      imageItems: savedImageItems
     });
   },
 
@@ -30,11 +32,15 @@ Page({
 
   onAddImageConfirm: function () {
     const newPage = { src: this.data.newImageUrl };
+    const updatedSwiperItems = [...this.data.swiperItems, newPage];
+
     this.setData({
-      swiperItems: [...this.data.swiperItems, newPage],
+      swiperItems: updatedSwiperItems,
       showAddImageDialog: false,
       newImageUrl: ''
     });
+
+    wx.setStorageSync('swiperItems', updatedSwiperItems);
   },
 
   onAddImageClose: function () {
@@ -49,6 +55,8 @@ Page({
     const swiperItems = [...this.data.swiperItems];
     swiperItems.pop();
     this.setData({ swiperItems });
+
+    wx.setStorageSync('swiperItems', swiperItems);
   },
 
   onGridItemTap: function(event) {

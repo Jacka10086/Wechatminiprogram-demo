@@ -39,7 +39,12 @@
   width: 100%;
   height: 400rpx;
   margin-top: 20rpx;
+  border: 1px solid #ccc; /* 添加边框 */
+  border-radius: 10rpx; /* 添加圆角 */
+  padding: 10rpx; /* 内边距，以防内容紧贴边框 */
+  box-sizing: border-box; /* 包括内边距和边框在内的宽度和高度 */
 }
+
 
 .swiper-image {
   width: 100%;
@@ -47,14 +52,18 @@
 }
 
 .grid-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20rpx;
-  width: 100%;
-  padding: 20rpx;
-  box-sizing: border-box;
-  margin-top: 20rpx;
+  display: grid; /* 将元素设置为网格容器 */
+  grid-template-columns: repeat(5, 1fr); /* 创建5列，列宽相等 */
+  gap: 20rpx; /* 设置网格项之间的间距为20rpx */
+  width: 100%; /* 宽度为100% */
+  padding: 20rpx; /* 内边距为20rpx */
+  box-sizing: border-box; /* 包括内边距和边框在内的宽度和高度 */
+  margin-top: 20rpx; /* 设置顶部外边距为20rpx */
+  border: 1px solid #ccc; /* 设置边框为1px实线，颜色为#ccc（灰色） */
+  border-radius: 10rpx; /* 设置边框圆角半径为10rpx */
 }
+
+
 
 .grid-item {
   display: flex;
@@ -76,21 +85,26 @@
   padding: 20rpx;
   box-sizing: border-box;
   margin-top: 20rpx;
+  
 }
 
 .image-grid-item {
   position: relative;
   overflow: hidden; 
+  border: 1px solid #ccc; /* 添加边框 */
+  border-radius: 10rpx; /* 添加圆角 */
+  padding: 10rpx; /* 内边距，以防图片紧贴边框 */
+  box-sizing: border-box; /* 包括内边距和边框在内的宽度和高度 */
 }
 
 .image-grid-item.large {
   grid-row: span 2;
-  height: 500rpx; 
+  height: 580rpx; 
 }
 
 .image-grid-item.small {
   grid-row: span 1;
-  height: 240rpx; 
+  height: 280rpx; 
 }
 
 .content-image {

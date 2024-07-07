@@ -1,54 +1,22 @@
 <view class="container">
   <view class="user-info">
-    <image class="avatar" src="{{avatarUrl}}" />
-    <view>
-      <text class="nick-name">{{nickName}}</text>
-      <text class="info">{{gender}}</text>
-      <text class="info">{{province}}, {{city}}, {{country}}</text>
-    </view>
-  </view>
-
-  <view class="device-info">
-    <view class="device-info-item">
-      <text>个人设备总数量: </text><text>{{totalDevices}}</text>
-    </view>
-    <view class="device-info-item">
-      <text>普通级: </text><text>{{normalDevices}}</text>
-    </view>
-    <view class="device-info-item">
-      <text>联名级: </text><text>{{collabDevices}}</text>
-    </view>
-    <view class="device-info-item">
-      <text>限定级: </text><text>{{limitedDevices}}</text>
-    </view>
-    <view class="device-info-item">
-      <text>收藏级: </text><text>{{collectibleDevices}}</text>
-    </view>
+    <image src="{{avatarUrl}}" class="avatar" />
+    <text class="nick-name">{{nickName}}</text>
+    <text class="info">{{gender}} | {{country}} {{province}} {{city}}</text>
   </view>
 
   <button bindtap="onEditTap">编辑信息</button>
 
-  <van-dialog use-slot show="{{showEditSheet}}" bind:close="onClose">
-    <view class="edit-info">
-      <label for="nickName">昵称</label>
-      <input id="nickName" value="{{editNickName}}" placeholder="请输入昵称" bindinput="onNickNameChange" />
-
-      <label for="gender">性别</label>
-      <input id="gender" value="{{editGender}}" placeholder="请输入性别" bindinput="onGenderChange" />
-
-      <label for="province">省份</label>
-      <input id="province" value="{{editProvince}}" placeholder="请输入省份" bindinput="onProvinceChange" />
-
-      <label for="city">城市</label>
-      <input id="city" value="{{editCity}}" placeholder="请输入城市" bindinput="onCityChange" />
-    </view>
-    <van-button type="primary" bindtap="onSelect">保存</van-button>
-    <van-button bindtap="onClose">取消</van-button>
-  </van-dialog>
-
-  <van-tabbar active="{{active}}" bind:change="onTabBarChange">
-    <van-tabbar-item icon="home-o" bindtap="navigateToPage1">我的设备</van-tabbar-item>
-    <van-tabbar-item icon="shop-o" bindtap="navigateToPage2">线上商城</van-tabbar-item>
-    <van-tabbar-item icon="user-o" bindtap="navigateToPage3">个人信息</van-tabbar-item>
-  </van-tabbar>
+  <van-action-sheet show="{{showEditSheet}}" actions="{{actions}}" bind:close="onClose" bind:select="onSelect">
+    <van-field label="昵称" value="{{editNickName}}" bind:change="onNickNameChange" />
+    <van-field label="性别" value="{{editGender}}" bind:change="onGenderChange" />
+    <van-field label="省份" value="{{editProvince}}" bind:change="onProvinceChange" />
+    <van-field label="城市" value="{{editCity}}" bind:change="oa cnCityChange" />
+  </van-action-sheet>
 </view>
+
+<van-tabbar bind:change="onTabBarChange" active="{{active}}">
+  <van-tabbar-item icon="home-o" bindtap="navigateToPage1">我的设备</van-tabbar-item>
+  <van-tabbar-item icon="shop-o" bindtap="navigateToPage2">线上商城</van-tabbar-item>
+  <van-tabbar-item icon="user-o" bindtap="navigateToPage3">个人信息</van-tabbar-item>
+</van-tabbar>

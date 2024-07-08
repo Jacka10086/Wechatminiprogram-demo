@@ -33,7 +33,25 @@
   height: calc(100vh - 60px); 
   overflow-y: auto; /* 使得内容可滚动 */
 }
+.van-card {
+  position: relative;
+  margin-bottom: 20rpx; /* 设置卡片之间的间距 */
+  border-bottom: 1px solid #e0e0e0; /* 设置卡片之间的分界线 */
+  padding-bottom: 20rpx; /* 设置卡片内底部内边距，以避免分界线覆盖内容 */
+}
 
+/* 设置分界线样式 */
+.card-divider {
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 20rpx;
+}
+
+.settings-button {
+  position: absolute;
+  top: 50%;
+  right: 20rpx;
+  transform: translateY(-50%);
+}
 /* van-tabbar {
   position: fixed;
   bottom: 0;

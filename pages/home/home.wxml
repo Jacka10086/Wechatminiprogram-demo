@@ -2,9 +2,10 @@
   <van-tabs active="{{ activeTab }}" bind:change="onTabChange">
     <van-tab title="全部分类">
       <block wx:for="{{ devices }}" wx:key="id">
+        <view class="card-divider"></view> <!-- 分界线 -->
         <van-card title="{{ item.name }}" desc="{{ item.description }}" thumb="https://img.yzcdn.cn/vant/ipad.jpeg">
           <view slot="footer">
-            <van-button type="primary" size="mini" bind:click="showDeviceControl" data-id="{{ item.id }}">设置</van-button>
+            <van-button class="settings-button" type="primary" size="small" bindtap="showDeviceControl" data-id="{{ item.id }}">设置</van-button>
             <van-switch size="24px" checked="{{ item.enabled }}" bind:change="onSwitchChange" data-id="{{ item.id }}" />
           </view>
         </van-card>
@@ -12,9 +13,10 @@
     </van-tab>
     <van-tab title="分类一">
       <block wx:for="{{ category1Devices }}" wx:key="id">
+        <view class="card-divider"></view> <!-- 分界线 -->
         <van-card title="{{ item.name }}" desc="{{ item.description }}" thumb="https://img.yzcdn.cn/vant/ipad.jpeg">
           <view slot="footer">
-            <van-button type="primary" size="mini" bind:click="showDeviceControl" data-id="{{ item.id }}">设置</van-button>
+            <van-button class="settings-button" type="primary" size="small" bindtap="showDeviceControl" data-id="{{ item.id }}">设置</van-button>
             <van-switch size="24px" checked="{{ item.enabled }}" bind:change="onSwitchChange" data-id="{{ item.id }}" />
           </view>
         </van-card>
@@ -22,9 +24,10 @@
     </van-tab>
     <van-tab title="分类二">
       <block wx:for="{{ category2Devices }}" wx:key="id">
+        <view class="card-divider"></view> <!-- 分界线 -->
         <van-card title="{{ item.name }}" desc="{{ item.description }}" thumb="https://img.yzcdn.cn/vant/ipad.jpeg">
           <view slot="footer">
-            <van-button type="primary" size="mini" bind:click="showDeviceControl" data-id="{{ item.id }}">设置</van-button>
+            <van-button class="settings-button" type="primary" size="small" bindtap="showDeviceControl" data-id="{{ item.id }}">设置</van-button>
             <van-switch size="24px" checked="{{ item.enabled }}" bind:change="onSwitchChange" data-id="{{ item.id }}" />
           </view>
         </van-card>
@@ -51,4 +54,5 @@
       <van-button type="primary" bindtap="closeDeviceControl">关闭</van-button>
     </view>
   </van-popup>
+
 </view>

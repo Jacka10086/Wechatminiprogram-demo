@@ -1,11 +1,10 @@
-<view style="box-sizing: border-box; margin: 16rpx 16rpx 160rpx 16rpx; flex-grow: 1; overflow-x: hidden; overflow-y: scroll;"bindtouchstart="onTouchStart"
-  bindtouchmove="onTouchMove"
-  bindtouchend="onTouchEnd">
+<view style="box-sizing: border-box; margin: 16rpx 16rpx 160rpx 16rpx; flex-grow: 1; overflow-x: hidden; overflow-y: scroll;" bindtouchstart="onTouchStart" bindtouchmove="onTouchMove" bindtouchend="onTouchEnd">
   <van-tabs active="{{ activeTab }}" bind:change="onTabChange">
     <van-tab title="全部分类">
       <block wx:for="{{ devices }}" wx:key="id">
         <van-card title="{{ item.name }}" desc="{{ item.description }}" thumb="https://img.yzcdn.cn/vant/ipad.jpeg">
           <view slot="footer">
+            <van-button type="primary" size="mini" bind:click="showDeviceControl" data-id="{{ item.id }}">设置</van-button>
             <van-switch size="24px" checked="{{ item.enabled }}" bind:change="onSwitchChange" data-id="{{ item.id }}" />
           </view>
         </van-card>
@@ -15,6 +14,7 @@
       <block wx:for="{{ category1Devices }}" wx:key="id">
         <van-card title="{{ item.name }}" desc="{{ item.description }}" thumb="https://img.yzcdn.cn/vant/ipad.jpeg">
           <view slot="footer">
+            <van-button type="primary" size="mini" bind:click="showDeviceControl" data-id="{{ item.id }}">设置</van-button>
             <van-switch size="24px" checked="{{ item.enabled }}" bind:change="onSwitchChange" data-id="{{ item.id }}" />
           </view>
         </van-card>
@@ -24,16 +24,31 @@
       <block wx:for="{{ category2Devices }}" wx:key="id">
         <van-card title="{{ item.name }}" desc="{{ item.description }}" thumb="https://img.yzcdn.cn/vant/ipad.jpeg">
           <view slot="footer">
+            <van-button type="primary" size="mini" bind:click="showDeviceControl" data-id="{{ item.id }}">设置</van-button>
             <van-switch size="24px" checked="{{ item.enabled }}" bind:change="onSwitchChange" data-id="{{ item.id }}" />
           </view>
         </van-card>
       </block>
     </van-tab>
   </van-tabs>
-  
+
+  <van-tabbar active="{{active}}" bind:change="onTabBarChange">
+    <van-tabbar-item icon="home-o" bindtap="navigateToPage1">我的设备</van-tabbar-item>
+    <van-tabbar-item icon="shop-o" bindtap="navigateToPage2">雷士商城</van-tabbar-item>
+    <van-tabbar-item icon="user-o" bindtap="navigateToPage3">个人信息</van-tabbar-item>
+  </van-tabbar>
+
+  <van-popup show="{{ showDeviceControlPopup }}" position="bottom" custom-style="height: 50%;">
+    <view class="popup-content">
+      <view class="slider-container">
+        <text>色温</text>
+        <van-slider value="{{ colorTemperature }}" min="2700" max="6500" bind:change="onColorTemperatureChange" />
+      </view>
+      <view class="slider-container">
+        <text>亮度</text>
+        <van-slider value="{{ brightness }}" min="0" max="100" bind:change="onBrightnessChange" />
+      </view>
+      <van-button type="primary" bindtap="closeDeviceControl">关闭</van-button>
+    </view>
+  </van-popup>
 </view>
-<van-tabbar active="{{active}}" bind:change="onTabBarChange">
-  <van-tabbar-item icon="home-o" bindtap="navigateToPage1">我的设备</van-tabbar-item>
-  <van-tabbar-item icon="shop-o" bindtap="navigateToPage2">雷士商城</van-tabbar-item>
-  <van-tabbar-item icon="user-o" bindtap="navigateToPage3">个人信息</van-tabbar-item>
-</van-tabbar>

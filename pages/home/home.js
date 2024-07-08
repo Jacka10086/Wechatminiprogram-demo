@@ -8,7 +8,10 @@ Page({
     touchStartX: 0,
     touchStartY: 0,
     touchEndX: 0,
-    touchEndY: 0
+    touchEndY: 0,
+    showDeviceControlPopup: false,
+    colorTemperature: 4000,
+    brightness: 50,
   },
 
   onLoad() {
@@ -114,5 +117,22 @@ Page({
         this.setData({ activeTab: this.data.activeTab + 1 });
       }
     }
-  }
+  },
+  showDeviceControl(event) {
+    const deviceId = event.currentTarget.dataset.id;
+    console.log(`Show control for device: ${deviceId}`);
+    this.setData({ showDeviceControlPopup: true });
+  },
+
+  closeDeviceControl() {
+    this.setData({ showDeviceControlPopup: false });
+  },
+
+  onColorTemperatureChange(event) {
+    this.setData({ colorTemperature: event.detail });
+  },
+
+  onBrightnessChange(event) {
+    this.setData({ brightness: event.detail });
+  },
 });

@@ -48,8 +48,8 @@
 
 .settings-button {
   position: absolute;
-  top: 50%;
-  right: 20rpx;
+  bottom: 5%;
+  left: 55rpx;
   transform: translateY(-50%);
 }
 /* van-tabbar {

@@ -81,9 +81,12 @@ Page({
   onTouchStart(event) {
     this.setData({
       touchStartX: event.touches[0].clientX,
-      touchStartY: event.touches[0].clientY
+      touchStartY: event.touches[0].clientY,
+      touchStartTime: event.timeStamp,
+      isSwiping: false // 重置滑动标志
     });
   },
+
 
   onTouchMove(event) {
     this.setData({
@@ -95,11 +98,19 @@ Page({
   onTouchEnd(event) {
     const deltaX = this.data.touchEndX - this.data.touchStartX;
     const deltaY = this.data.touchEndY - this.data.touchStartY;
+    const deltaTime = event.timeStamp - this.data.touchStartTime;
 
-    if (Math.abs(deltaX) > Math.abs(deltaY)) {
-      if (deltaX > 200 && this.data.activeTab > 0) {
+    // 如果触摸事件的持续时间小于200毫秒，则认为是点击而不是滑动
+    if (deltaTime < 200) {
+      return;
+    }
+
+    if (!this.data.isSwiping && Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+      this.setData({ isSwiping: true }); // 设置滑动标志
+
+      if (deltaX > 50 && this.data.activeTab > 0) {
         this.setData({ activeTab: this.data.activeTab - 1 });
-      } else if (deltaX < -200 && this.data.activeTab < 2) {
+      } else if (deltaX < -50 && this.data.activeTab < 2) {
         this.setData({ activeTab: this.data.activeTab + 1 });
       }
     }

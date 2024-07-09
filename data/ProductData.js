@@ -7,8 +7,8 @@ module.exports = {
     { src: 'https://via.placeholder.com/600x400/800080/FFFFFF?text=Purple' }
   ],
   imageItems: [
-    { src: 'https://img.alicdn.com/bao/uploaded/i2/2371762012/O1CN01dG70E11QjXq71WXup_!!0-item_pic.jpg', text: '1' },
-    { src: 'https://img.alicdn.com/bao/uploaded/i3/2371762012/O1CN01SBW8af1QjXopdRW2W_!!0-item_pic.jpg', text: '2' },
+    { src: 'https://via.placeholder.com/600x400/856800/FFFFFF?', text: '1' },
+    { src: 'https://via.placeholder.com/600x400/102080/FFFFFF?', text: '2' },
     { src: 'https://via.placeholder.com/600x400/FFA500/FFFFFF?text=Orange', text: '3' }
   ]
 };
